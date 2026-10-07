@@ -168,12 +168,8 @@
 
                     <div class="form-group">
                         <label>Cenário do Jogo</label>
-                        <select class="form-select" id="setup-scenario">
-                            <option value="scen_bar">Bar Brasileiro Tradicional</option>
-                            <option value="scen_favela">Favela Sunset na Laje</option>
-                            <option value="scen_luxo">Mansão & Piscina de Luxo</option>
-                            <option value="scen_campo">Chácara Imperial no Campo</option>
-                        </select>
+                        <select class="form-select" id="setup-scenario"></select>
+                        <canvas id="setup-bg-preview" width="320" height="120" style="width:100%;border-radius:10px;margin-top:8px;border:1px solid rgba(255,255,255,.15);"></canvas>
                     </div>
                 </div>
 
@@ -202,7 +198,7 @@
 
                 <div class="shop-tabs">
                     <button class="shop-tab-btn active" id="tab-cues-btn" onclick="ShopSystem.switchTab('cues')">Tacos Especiais (10)</button>
-                    <button class="shop-tab-btn" id="tab-scen-btn" onclick="ShopSystem.switchTab('scenarios')">Cenários & Feltros (4)</button>
+                    <button class="shop-tab-btn" id="tab-scen-btn" onclick="ShopSystem.switchTab('scenarios')">Cenários</button>
                 </div>
 
                 <div class="shop-items-grid" id="shop-items-container">
@@ -210,6 +206,18 @@
                 </div>
 
                 <button class="btn btn-secondary" style="width: 100%; margin-top: 10px;" onclick="UI.showScreen('screen-menu')">Voltar ao Menu</button>
+            </div>
+        </div>
+
+        <!-- Confirmação de compra -->
+        <div id="buy-modal">
+            <div class="modal-box" style="max-width: 380px; text-align: center;">
+                <h3 style="color: var(--gold);">Confirmar compra</h3>
+                <p id="buy-text"></p>
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn btn-secondary" style="flex: 1;" onclick="ShopSystem.closeBuy()">Cancelar</button>
+                    <button class="btn btn-green" style="flex: 1;" id="buy-ok">Comprar</button>
+                </div>
             </div>
         </div>
 
